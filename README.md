@@ -16,22 +16,20 @@ This directory houses a 2D implementation of the Lattice Boltzmann equation for 
 
 The analytical solution for this problem is:
 
-
-$C = C_i+ \frac{M_0}{4\pi Dt} e^{- \frac{r^2}{4Dt}}$
-
+<img src=".equation.jpg" width="200"/>
 
 The file *figure69.py* solves the analytical solution for the given conditions and plots it as dashed lines, while plotting the corresponding *Palabos* solution with solid circles.
 
 Values Used
 -----------
 
-| parameter | value |
-| --- | --- |
-| $C_i$ | 0 |
-| $M_0$ | 1000 |
-| $D$ | 1/6 |
-| $n_x$ | 1000 |
-| $n_y$ | 1000 |
+| parameter     | value |
+| ---           | ---  |
+| C<sub>i</sub> | 0    |
+| M<sub>0</sub> | 1000 |
+| D             | 1/6  |
+| n<sub>x</sub> | 1000 |
+| n<sub>y</sub> | 1000 |
 
 palabosRoot
 -----------
