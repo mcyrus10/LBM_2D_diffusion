@@ -16,7 +16,9 @@ This directory houses a 2D implementation of the Lattice Boltzmann equation for 
 
 The analytical solution for this problem is:
 
-$$C = C_i+ \frac{M_0}{4\pi Dt} e^{- \frac{r^2}{4Dt}}$$
+
+$C = C_i+ \frac{M_0}{4\pi Dt} e^{- \frac{r^2}{4Dt}}$
+
 
 The file *figure69.py* solves the analytical solution for the given conditions and plots it as dashed lines, while plotting the corresponding *Palabos* solution with solid circles.
 
@@ -31,7 +33,7 @@ Values Used
 | $n_x$ | 1000 |
 | $n_y$ | 1000 |
 
-Note
-----
+palabosRoot
+-----------
 
-The -.5 in the LBM plotting is accounted for in the following way: nx = 1000 so when *centerPointSetup* instantiates the variable center_x, (plint center_x = nx/2) this returns 500 $\rightarrow$ from a zero-based array this is .5 to the right of the center of the domain.
+Refer to the Makefile to see where *palabosRoot* needs to be with respect to this directory for correct compilation. It is currently set to two directories up (../..). This is one level nearer than the tutorials direcotires that come with palabos.
