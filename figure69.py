@@ -1,6 +1,6 @@
 #!/Users/cyrus/miniconda3/bin/python3
 import matplotlib.pyplot as plt
-from numpy import meshgrid,linspace,array,sqrt,pi,exp
+from numpy import linspace,array,pi,exp
 #------------------------------------------------------------------------------
 #   Comparing the analytical solution with the LBM solution 
 #------------------------------------------------------------------------------
@@ -39,5 +39,5 @@ plt.legend()
 plt.xlim(-75,75)
 plt.xlabel("Lattice Units")
 plt.ylabel("Concentration mu lu$^{-2}$")
-plt.savefig('comparisonD2Q5.png',dpi = dpi)
+plt.savefig('.comparisonD2Q5.png',dpi = dpi)
 plt.show()
