@@ -15,40 +15,40 @@ void centerPointSetup(  MultiBlockLattice2D<T,ADESCRIPTOR>& adLattice,
 {
     plint center_x = nx/2;
     plint center_y = ny/2;
-    Box2D centralSquare(
-            center_x, center_x,center_y,center_y);
-    T rho = 0.0;                // Initialized to zero concentration (not density)
+    Box2D centralSquare(center_x, center_x,center_y,center_y);
+    T C_init = 0.0;             // Initialized to zero concentration (not density)
     Array<T,2> u0((T)0,(T)0);   // velocity (0,0)
-    initializeAtEquilibrium(adLattice, adLattice.getBoundingBox(), rho, u0);
+    initializeAtEquilibrium(adLattice, adLattice.getBoundingBox(), C_init, u0);
     initializeAtEquilibrium(adLattice, centralSquare, M_0, u0);
     adLattice.initialize();
 }
 //}}}
 
 
-int main(int argc, char* argv[]){
-    plbInit(&argc, &argv);
-    global::directories().setOutputDir("./tmp/");
-    const int nx = 1000;
-    const int ny = 1000;
-    const double D = 1.0/6.0;
+int main(){
+    const int nx = 1000;            // lattice points in x-direction
+    const int ny = 1000;            // lattice points in y-direction
+    const double D = 1.0/6.0;       // Diffusivity
     const plint maxIter = 1000;     // Maximum number of iterations
-    T tau = 3*D+0.5;                // hard coding this for now
-    T adOmega = 1.0/tau;            // omega = 1/tau 
+    T tau = 3.0 * D + 0.5;          // hard coding this for now
+    T adOmega = 1.0 / tau;          // omega = 1/tau 
     T M_0 = 1000.0;                 // concentration at the center
 
+    // Instantiate the lattice
     MultiBlockLattice2D<T,ADESCRIPTOR> adLattice(
                                 nx,
                                 ny,
                                 new ADYNAMICS<T, ADESCRIPTOR>(adOmega));
     // Periodic boundary in all directions
     adLattice.periodicity().toggleAll(true);    
+
+    // Initial Condition
     centerPointSetup(adLattice,nx,ny,M_0);
 
     plb_ofstream successiveProfiles("concentrationProfiles.dat");
     for (plint iT = 0; iT<=maxIter; iT++){
         if (iT%50==0) {
-            pcout << "Writing vtk_instance at iT = " << iT << std::endl;
+            pcout << "Writing concentration profile  at iT = " << iT << std::endl;
             successiveProfiles << std::setprecision(7)
                 << *computeDensity(adLattice, Box2D(0,nx,ny/2,ny/2))
                 << std::endl << std::endl;
