@@ -8,10 +8,7 @@ typedef double T;
 #define ADYNAMICS AdvectionDiffusionBGKdynamics
 
 void centerPointSetup(  MultiBlockLattice2D<T,ADESCRIPTOR>& adLattice,
-                        int nx,
-                        int ny,
-                        T M_0)
-//{{{
+                        int nx,int ny, T M_0)
 {
     plint center_x = nx/2;
     plint center_y = ny/2;
@@ -22,8 +19,6 @@ void centerPointSetup(  MultiBlockLattice2D<T,ADESCRIPTOR>& adLattice,
     initializeAtEquilibrium(adLattice, centralSquare, M_0, u0);
     adLattice.initialize();
 }
-//}}}
-
 
 int main(){
     const int nx = 1000;            // lattice points in x-direction
@@ -56,5 +51,3 @@ int main(){
         adLattice.collideAndStream();
     }
 }
-
-
