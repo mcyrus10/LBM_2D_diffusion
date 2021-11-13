@@ -7,9 +7,10 @@ typedef double T;
 #define ADESCRIPTOR descriptors::AdvectionDiffusionD2Q5Descriptor
 #define ADYNAMICS AdvectionDiffusionBGKdynamics
 
-void centerPointSetup(  MultiBlockLattice2D<T,ADESCRIPTOR>& adLattice,
-                        int nx,int ny, T M_0)
+void centerPointSetup(  MultiBlockLattice2D<T,ADESCRIPTOR>& adLattice, T M_0)
 {
+    plint nx = adLattice.getNx();
+    plint ny = adLattice.getNy();
     plint center_x = nx/2;
     plint center_y = ny/2;
     Box2D centralSquare(center_x, center_x,center_y,center_y);
@@ -38,7 +39,7 @@ int main(){
     adLattice.periodicity().toggleAll(true);    
 
     // Initial Condition
-    centerPointSetup(adLattice,nx,ny,M_0);
+    centerPointSetup(adLattice,M_0);
 
     plb_ofstream successiveProfiles("concentrationProfiles.dat");
     for (plint iT = 0; iT<=maxIter; iT++){

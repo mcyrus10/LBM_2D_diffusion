@@ -29,7 +29,7 @@ def main(plot_interval : int = 1) -> None:
     plt.figure(0, figsize = (8,8))
     for i,t in enumerate(times):
         if i % plot_interval == 0 and i != 0:
-            analytical = np.array([(M0/(4*np.pi*D*t))*np.exp(-r**2/(4*D*t)) for r in rad])
+            analytical = (M0/(4*np.pi*D*t))*np.exp(-rad**2/(4*D*t))
             plt.plot(rad,analytical,'{}--'.format(color(i)), linewidth = .75, label = "{} s".format(t))
             plt.plot(rad-.5,lbm_values[i],'ko', markerfacecolor = color(i), markersize = 3)
 
@@ -43,4 +43,4 @@ def main(plot_interval : int = 1) -> None:
     plt.show()
 
 if __name__ == "__main__":
-    main(2)
+    main(1)
