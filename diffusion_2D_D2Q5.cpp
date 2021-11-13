@@ -21,13 +21,13 @@ void centerPointSetup(  MultiBlockLattice2D<T,ADESCRIPTOR>& adLattice,
 }
 
 int main(){
-    const int nx = 1000;            // lattice points in x-direction
-    const int ny = 1000;            // lattice points in y-direction
-    const double D = 1.0/6.0;       // Diffusivity
-    const plint maxIter = 1000;     // Maximum number of iterations
-    T tau = 3.0 * D + 0.5;          // hard coding this for now
-    T adOmega = 1.0 / tau;          // omega = 1/tau 
-    T M_0 = 1000.0;                 // concentration at the center
+    const plint nx = 1000;            // lattice points in x-direction
+    const plint ny = 1000;            // lattice points in y-direction
+    const double D = 1.0/6.0;         // Diffusivity
+    const plint maxIter = 1000;       // Maximum number of iterations
+    T tau = 3.0 * D + 0.5;            // hard coding this for now
+    T adOmega = 1.0 / tau;            // omega = 1/tau 
+    T M_0 = 1000.0;                   // concentration at the center
 
     // Instantiate the lattice
     MultiBlockLattice2D<T,ADESCRIPTOR> adLattice(

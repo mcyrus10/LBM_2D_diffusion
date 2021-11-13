@@ -11,9 +11,9 @@ def read_lbm_file(  f_name : str, nx : int, intervals : int) -> np.array:
     temp = np.array([float(j) for j in text[0:-1]]).reshape(intervals,nx)
     return(temp)
 
-def color(x : int) -> str: return 'rbgmcy'[x%6]             # color cycler
+def color(x : int) -> str: return 'rbgmcyk'[x%7]             # color cycler
 
-def main(plot_interval : int = 2) -> None:
+def main(plot_interval : int = 1) -> None:
     nx : int = 1000
     ny : int = 1000
     dpi : float = 300
@@ -43,4 +43,4 @@ def main(plot_interval : int = 2) -> None:
     plt.show()
 
 if __name__ == "__main__":
-    main()
+    main(2)
