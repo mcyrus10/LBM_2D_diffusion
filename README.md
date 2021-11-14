@@ -6,6 +6,8 @@ Geoscientists and Engineers*
 This Palabos program is for validating diffusion in a (infinite) two
 dimensional domain agains a known analytic solution.
 
+Analytical solution by Crank in [The Mathematics of Diffusion](http://www-eng.lbl.gov/~shuman/NEXT/MATERIALS&COMPONENTS/Xe_damage/Crank-The-Mathematics-of-Diffusion.pdf) (Chapter 3)
+
 ---
 
 ![](.comparisonD2Q5.png)

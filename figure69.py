@@ -43,4 +43,4 @@ def main(plot_interval : int = 1) -> None:
     plt.show()
 
 if __name__ == "__main__":
-    main(1)
+    main(2)
