@@ -42,6 +42,10 @@ solution with solid circles.
 | n<sub>x</sub> | 1000 |
 | n<sub>y</sub> | 1000 |
 
-## palabosRoot
+## Compiling
 
-Refer to the Makefile to see where *palabosRoot* needs to be with respect to this directory for correct compilation. It is currently set to two directories up (../..). This is one level nearer than the tutorials direcotires that come with palabos.
+Note the path in CmakeLists.txt to the Palabos library is not the same path you
+will use (lines 99 - 104). Also you will need to create a build directory in
+which you can compile the program like this:
+
+    $ mkdir build && cd build && cmake .. && make && cd ..
